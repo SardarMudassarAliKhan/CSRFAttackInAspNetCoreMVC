@@ -1,0 +1,22 @@
+﻿@model IEnumerable<XSSAttackInAspNetCoreMVC.Model.BlogPost>
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blog Posts</title>
+</head>
+<body>
+    <h1>Blog Posts</h1>
+    <a asp-controller="Blog" asp-action="Create">Create New Post</a>
+    <ul>
+        @foreach (var post in Model)
+        {
+            <li>
+                <h2>@post.Title</h2>
+                <p>@Html.Raw(@post.Content)</p>
+                <p><small>@post.Created</small></p>
+            </li>
+        }
+    </ul>
+</body>
+</html>
